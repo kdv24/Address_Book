@@ -4,12 +4,35 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 <body>
+
         <div class='container'>
             <h1>Your Fancy Dancy Address Book<h1>
             <h3>Add a new contact here:</h3>
+        <form action='/create_contact' method='post'>
+            <div class='form-group'>
+            <label for='name'>Contact name:</label>
+            <input id='name' name='name' class='form-control' type='text' required>
+            <br>
+            <label for='phone'>Contact phone:</label>
+            <input id='phone' name='phone' class='form-control' type='text' required>
+            <br>
+            <label for='address'>Contact address:</label>
+            <input id='address' name='address' class='form-control' type='text' required>
+            <br>
 
+            <button class='btn' type='submit'>Add Contact</a></button>
+            </div>
+        </form>
+        </div>
+
+
+
+        <div class='container'>
             {% if contacts is not empty %}
             <h3>Here are your contacts:</h3>
+            <form action='delete_contacts' method='post'>
+                <button type='submit' class="btn-primary">Delete all contacts</button>
+            </form>
             <ul>
                 {% for contact in contacts %}
                 <h5>{{ contact.getName }}</h5>
@@ -18,30 +41,6 @@
                 {% endfor %}
             </ul>
             {% endif %}
-
-            <div class='container'>
-            <form action='/create_contact' method='post'>
-                <div class='form-group'>
-                <label for='name'>Contact name:</label>
-                <input id='name' name='name' class='form-control' type='text' required>
-                <br>
-                <label for='phone'>Contact phone:</label>
-                <input id='phone' name='phone' class='form-control' type='text' required>
-                <br>
-                <label for='address'>Contact address:</label>
-                <input id='address' name='address' class='form-control' type='text' required>
-                <br>
-
-                <button class='btn' type='submit'><a href='/create_contact'>Add Contact</a></button>
-                </div>
-            </form>
-
-            <form action='/delete_contacts' method ='post'>
-                <button class='btn btn-primary' type='submit'>Delete All Contacts</a></button>
-            </form>
-            </div>
-
-
         </div>
 </body>
 </html>
