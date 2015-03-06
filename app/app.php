@@ -22,12 +22,10 @@
         return $app['twig']->render('create_contact.twig', array('new_contacts'=> $contact));
     });
 
-    $app->post('/confirm_delete', function() use($app){
-        return $app['twig']->render('confirm_delete.twig', array('delete_contact'=> Contact::deleteAll()));
-    });
+
 
     $app->post('/delete_contacts', function() use($app){
-        return $app['twig']->render('delete.twig', array('delete_contact'=> Contact::deleteAll()));
+        return $app['twig']->render('delete_contacts.twig', array('delete_contact'=> Contact::deleteAll()));
     });
 
     return $app;
