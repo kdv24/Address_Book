@@ -10,11 +10,11 @@
 
             <h3>Here is your new contact:</h3>
             <ul>
-                {% for new_contact in new_contacts %}
+
                 <h5>{{ new_contact.getName }}</h5>
                 <li>{{ new_contact.getPhone }}</li>
                 <li>{{ new_contact.getAddress }}</li>
-                {% endfor %}
+            
             </ul>
             <button class='btn'><a href="/">Add another contact</a></button>
         </div>
